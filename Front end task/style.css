@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* Compressed version of the background image */
+    background: url("assets/background-min.jpg") fixed;
+    background-size: cover;
+    margin: 0;
+    height: 100%;
+}
+
+/* Flexbox for the outer section */
+.outer-wrapper {
+    display: flex;
+}
+
+/* Giving both sides a display of flex and a width of 50% */
+.left-wrapper, .right-wrapper { 
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+/* Styling for the left side. Sets the height to 100% of the users view height */
+.left-wrapper {
+    height: 100vh;
+    color: white;
+    margin: 30px 40px;
+    
+}
+
+/* Giving the h1 tag a font size of 50 and center vertically */
+.left-wrapper> h1 {
+    font-size: 50px;
+    margin: auto 0;
+}
+
+/* Forcing the div to be at the bottom at all times until it reaches mobile view */
+.left-wrapper > div {
+    position: absolute;
+    bottom: 15px;
+    width: 25%;
+}
+
+/* Styling the horizontol line */
+.left-wrapper > div > hr {
+    position: absolute;
+    width: 50px;
+    border: 1px solid white;
+}
+
+/* Styling for the right side. Gives a white background colour and padding */
+.right-wrapper {
+    background-color: white;
+    padding: 30px;
+}
+
+/* Styling for the 'Questions' h1 */
+.right-wrapper > h1 {
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+/* Giving each question/answer a border and a 100% width as well as padding */
+.right-wrapper > div {
+    border-top: 1px solid hsl(0deg 0% 85%);
+    width: 100%;
+    padding: 5px;
+}
+
+/* Setting the colour of the answers when you click on a question */
+.right-wrapper > div > .content {
+    color: hsl(0deg 0% 34%);
+}
+
+/* The question will be a flexbox and have spacing between so the icon and question will be on each side */
+.right-wrapper > div > button {
+    display: flex;
+    justify-content:space-between;
+    background-color: white;
+    border: none;
+    padding: 15px 0;
+    font-size: 15px;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* The hidden class that will change the display between none and block based on the users clicks */
+.right-wrapper > div > .hidden {
+    display: none;
+}
+
+
+/* Mobile responsive styling */
+
+/* Styling for when the max width is 900px */
+@media screen and (max-width: 900px) {
+
+    /* Setting the direction from row to column */
+    .outer-wrapper {
+        flex-direction: column;
+    }
+
+    /* The div inside the wrapper will have its absolute positioning removed */
+    .left-wrapper > div {
+        position: relative;
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    /* Setting the width of the right  */
+    .right-wrapper {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Making the 'Questions' text centered */
+    .right-wrapper > h1 {
+        text-align: center;
+    }
+
+    /* Width of each question will be set to 80% and centered */
+    .right-wrapper > div {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+}
+
+
+@media screen and (max-height: 600px) {
+    /* Keeping the height at 100% */
+    .left-wrapper {
+        height: 100%;
+    }
+  
+}
